@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Terms & Conditions · Prime Bin Cleaning</title>
+<meta name="description" content="Terms and conditions for Prime Bin Cleaning services in the Treasure Valley." />
+<meta name="robots" content="noindex,follow" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Oswald:wght@500;600;700&family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600&display=swap" rel="stylesheet" />
+<style>
+:root{
+  --ink:#04101f;
+  --deep:#061a2e;
+  --steel:#1c5a93;
+  --sky-bright:#4ea4e6;
+  --ice:#e4f1fb;
+  --ice-soft:#c9def0;
+  --muted:#8ba7c4;
+  --line:rgba(120,180,230,.18);
+  --card:rgba(14,42,72,.55);
+  --card-brd:rgba(120,180,230,.25);
+  --maxw:900px;
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+body{
+  font-family:'Newsreader',serif;
+  color:var(--ice-soft);
+  background:
+    radial-gradient(1200px 700px at 15% -10%, rgba(78,164,230,.18), transparent 60%),
+    radial-gradient(900px 700px at 90% 10%, rgba(28,90,147,.35), transparent 55%),
+    linear-gradient(180deg,#02070f 0%,#04101f 40%,#061a2e 100%);
+  min-height:100vh;
+  line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+}
+/* subtle starfield */
+body::before{
+  content:"";position:fixed;inset:0;pointer-events:none;z-index:0;
+  background-image:
+    radial-gradient(1px 1px at 20% 30%, rgba(255,255,255,.55) 50%, transparent 51%),
+    radial-gradient(1px 1px at 55% 15%, rgba(255,255,255,.4) 50%, transparent 51%),
+    radial-gradient(1px 1px at 75% 55%, rgba(255,255,255,.5) 50%, transparent 51%),
+    radial-gradient(1px 1px at 40% 75%, rgba(255,255,255,.35) 50%, transparent 51%),
+    radial-gradient(1.5px 1.5px at 88% 30%, rgba(255,255,255,.55) 50%, transparent 51%),
+    radial-gradient(1px 1px at 12% 88%, rgba(255,255,255,.4) 50%, transparent 51%);
+  background-size:100% 100%;
+  opacity:.7;
+}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 22px;position:relative;z-index:1}
+
+.top{padding:28px 0 8px}
+.top__row{display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap}
+.brand{display:inline-flex;align-items:center;gap:12px;text-decoration:none;color:var(--ice)}
+.brand__mark{
+  width:44px;height:44px;border-radius:12px;display:grid;place-items:center;
+  background:linear-gradient(135deg,var(--sky-bright),var(--steel));
+  font-family:'Anton',sans-serif;color:#04101f;font-size:1.5rem;
+  box-shadow:0 10px 26px -12px rgba(78,164,230,.7), inset 0 1px 0 rgba(255,255,255,.4);
+}
+.brand__name{
+  font-family:'Oswald',sans-serif;font-weight:600;letter-spacing:.18em;
+  text-transform:uppercase;font-size:.9rem;line-height:1.15;color:var(--ice)
+}
+.brand__name span{display:block;font-size:.66rem;letter-spacing:.24em;color:var(--muted);margin-top:3px}
+.back{
+  font-family:'Oswald',sans-serif;font-weight:600;letter-spacing:.05em;text-transform:uppercase;
+  font-size:.78rem;padding:.55rem 1rem;border-radius:11px;color:#04101f;text-decoration:none;
+  background:linear-gradient(135deg,var(--sky-bright),var(--steel));white-space:nowrap;
+  box-shadow:0 10px 24px -12px rgba(78,164,230,.8), inset 0 1px 0 rgba(255,255,255,.4);
+}
+
+.head{padding:36px 0 8px;text-align:center}
+.eyebrow{
+  font-family:'Oswald',sans-serif;font-weight:600;font-size:.78rem;letter-spacing:.28em;
+  text-transform:uppercase;color:var(--sky-bright);opacity:.9
+}
+h1{
+  font-family:'Anton',sans-serif;text-transform:uppercase;letter-spacing:.01em;
+  font-size:clamp(2.4rem,6vw,3.6rem);line-height:1;margin:14px 0 12px;
+  background:linear-gradient(180deg,#fff 0%,#dbeeff 45%,#8fc4ef 100%);
+  -webkit-background-clip:text;background-clip:text;color:transparent;
+}
+.updated{color:var(--muted);font-size:.9rem;margin:0}
+
+.content{
+  margin:36px auto 20px;
+  background:var(--card);
+  border:1px solid var(--card-brd);
+  border-radius:20px;
+  padding:clamp(28px,4vw,44px);
+  backdrop-filter:blur(8px);
+  box-shadow:0 30px 60px -30px rgba(0,0,0,.5);
+}
+.content p{margin:0 0 16px;color:var(--ice-soft);font-size:1rem}
+.content p b{color:var(--ice);font-weight:600}
+.content h2{
+  font-family:'Oswald',sans-serif;font-weight:600;letter-spacing:.08em;text-transform:uppercase;
+  color:var(--ice);font-size:1rem;margin:26px 0 8px;
+}
+.content h2:first-child{margin-top:0}
+.content a{color:var(--sky-bright);text-decoration:underline;text-decoration-color:rgba(78,164,230,.4)}
+.content a:hover{text-decoration-color:var(--sky-bright)}
+.contact-block{
+  margin-top:28px;padding:18px 20px;border-radius:14px;
+  background:rgba(78,164,230,.08);border:1px solid rgba(120,180,230,.25);
+  font-size:.95rem;color:var(--ice-soft);
+}
+
+footer{padding:40px 0 60px;text-align:center;color:var(--muted);font-size:.85rem;position:relative;z-index:1}
+footer a{color:var(--muted);text-decoration:underline;text-decoration-color:rgba(190,220,245,.3)}
+footer a:hover{color:var(--ice)}
+
+@media(max-width:520px){
+  .content{padding:24px 20px}
+  .brand__name{font-size:.8rem}
+  .brand__name span{font-size:.6rem}
+  .back{font-size:.72rem;padding:.5rem .8rem}
+}
+</style>
+</head>
+<body>
+
+<div class="wrap top">
+  <div class="top__row">
+    <a class="brand" href="index.html">
+      <span class="brand__mark">P</span>
+      <span class="brand__name">Prime Bin Cleaning<span>Clean bins. Fresher homes.</span></span>
+    </a>
+    <a class="back" href="index.html">← Back to site</a>
+  </div>
+</div>
+
+<div class="wrap head">
+  <span class="eyebrow">The fine print</span>
+  <h1>Terms &amp; conditions</h1>
+  <p class="updated">Last updated: <span id="upd"></span></p>
+</div>
+
+<div class="wrap">
+  <div class="content">
+
+    <h2>1. About this service</h2>
+    <p>Prime Bin Cleaning is a small family-run side business operated by workers under the age of 18, with adult supervision. We clean residential garbage, recycling, and compost bins in the Treasure Valley. By booking, calling, or submitting a form on our website, you agree to these terms.</p>
+
+    <h2>2. Not a licensed contractor</h2>
+    <p>Prime Bin Cleaning is a side business, not a licensed, bonded, or insured commercial cleaning company. Service is provided on an as-is basis with no warranty of any kind, express or implied.</p>
+
+    <h2>3. Liability waiver</h2>
+    <p>By using our service, you agree that Prime Bin Cleaning, its operators, workers, and the parents or guardians of its workers are <b>not liable for any damage</b> to your bins, driveway, landscaping, home exterior, vehicles, or any other property that may occur during or after service. This includes but is not limited to: scratches, dents, cracking, discoloration, faded stickers, wheel or lid damage, water damage, staining, or damage from cleaning agents. Bins that are already cracked, sun-damaged, or more than 5 years old are cleaned entirely at the customer's risk.</p>
+
+    <h2>4. Access &amp; bin placement</h2>
+    <p>You agree to leave bins accessible at the curb on your scheduled service day. Bins not at the curb may be skipped without refund. We are not responsible for bins misplaced by trash haulers, wind, or neighbors.</p>
+
+    <h2>5. Results</h2>
+    <p>We do our best to clean, rinse, and deodorize each bin, but we cannot guarantee removal of every stain, sticker, permanent marker, embedded odor, mold, maggot infestation, or damage caused by long-term neglect. Bins containing hazardous waste, paint, chemicals, or non-household residue may be refused service without refund.</p>
+
+    <h2>6. Weather &amp; scheduling</h2>
+    <p>Service may be delayed or rescheduled due to weather, freezing temperatures, illness, school schedules, or other conditions. We'll let you know and reschedule as soon as we can; no refunds are given for weather-related delays.</p>
+
+    <h2>7. Payment &amp; cancellation</h2>
+    <p>Payment is due on the day of service unless arranged otherwise. You may cancel a scheduled cleaning up to 24 hours in advance at no charge. No-shows or same-day cancellations may be charged the full service price.</p>
+
+    <h2>8. Photos</h2>
+    <p>We may take before and after photos of your bins (never of your home or property) for quality checks and marketing. If you'd rather we didn't, just let us know.</p>
+
+    <h2>9. Age of workers</h2>
+    <p>All workers are minors under the age of 18. A parent or guardian supervises operations and can be reached at the number on this website. This is a youth-run entrepreneurial venture, not a professional commercial service.</p>
+
+    <h2>10. Changes to these terms</h2>
+    <p>We may update these terms at any time. Continued use of the service after changes are posted means you accept them.</p>
+
+    <div class="contact-block">
+      <b style="color:var(--ice)">Questions?</b> Text or call <a href="tel:+12082497296">(208) 249-7296</a> or email <a href="mailto:info@kingdom-creatives.com">info@kingdom-creatives.com</a>.
+    </div>
+
+  </div>
+</div>
+
+<footer>
+  <div class="wrap">
+    <a href="index.html">← Back to Prime Bin Cleaning</a><br />
+    <span style="opacity:.7">© <span id="yr"></span> Prime Bin Cleaning · Treasure Valley, Idaho</span>
+  </div>
+</footer>
+
+<script>
+document.getElementById('yr').textContent = new Date().getFullYear();
+document.getElementById('upd').textContent = 'July 2026';
+</script>
+
+</body>
+</html>
