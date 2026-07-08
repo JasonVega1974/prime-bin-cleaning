@@ -1025,15 +1025,23 @@ body::after{
       return "sms:" + LEAD.sms + "?body=" + encodeURIComponent(body);
     };
 
+    var isMobile = /Mobi|Android|iPhone|iPad|iPod/i.test(navigator.userAgent) || (navigator.maxTouchPoints > 0 && window.innerWidth < 900);
+
     var showDone = function(phone, smsUrl){
       form.hidden = true;
       var done = document.getElementById('signupDone');
       var dm = document.getElementById('doneMsg');
-      if(dm) dm.textContent = "We got your info! We'll text you at " + phone + " to lock in your day and price. Opening a text so you can send us a copy too — just hit send.";
+      if(dm){
+        if(isMobile && smsUrl){
+          dm.textContent = "We got your info! We'll text you at " + phone + " to lock in your day and price. Opening a text so you can send us a copy too — just hit send.";
+        } else {
+          dm.textContent = "We got your info! We'll text you at " + phone + " from (208) 249-7296 to lock in your day and price. Keep an eye on your messages.";
+        }
+      }
       if(done){ done.hidden = false; done.scrollIntoView({behavior:'smooth', block:'center'}); }
-      // Belt-and-suspenders: also open the customer's SMS app with a pre-filled message.
-      // Email already delivered the lead; this gives a second confirmation channel.
-      if(smsUrl){ setTimeout(function(){ window.location.href = smsUrl; }, 900); }
+      // Belt-and-suspenders: on mobile only, also open the customer's SMS app pre-filled.
+      // Skipped on desktop to avoid the "Open Pick an app?" system dialog.
+      if(smsUrl && isMobile){ setTimeout(function(){ window.location.href = smsUrl; }, 900); }
     };
 
     form.addEventListener('submit', function(e){
@@ -1099,10 +1107,15 @@ body::after{
         .then(function(r){ return r.ok ? r.json().catch(function(){return {ok:true};}) : Promise.reject(r.status); })
         .then(function(){ showDone(data.phone, buildSms(data)); })
         .catch(function(){
-          // couldn't reach the lead server — never lose the lead: open a pre-filled text
-          msgEl.className = 'signup__msg ok';
-          msgEl.textContent = 'Opening a text with your details — just hit send and you\u2019re booked!';
-          window.location.href = buildSms(data);
+          // couldn't reach the lead server — never lose the lead
+          if(isMobile){
+            msgEl.className = 'signup__msg ok';
+            msgEl.textContent = 'Opening a text with your details — just hit send and you\u2019re booked!';
+            window.location.href = buildSms(data);
+          } else {
+            msgEl.className = 'signup__msg err';
+            msgEl.textContent = 'Couldn\u2019t reach our server. Please text your details to (208) 249-7296 and we\u2019ll get you booked!';
+          }
         })
         .then(function(){ submitBtn.disabled = false; submitBtn.textContent = origText; });
     });
