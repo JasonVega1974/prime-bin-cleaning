@@ -1027,11 +1027,12 @@ body::after{
 
     var isMobile = /Mobi|Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
 
-    // Global guard: on desktop, never let an sms: link trigger Windows' "Open Pick an app?" dialog.
-    // Intercept clicks on any <a href="sms:..."> and show a helpful toast instead. Mobile is untouched.
+    // Global guard: on desktop, never let sms: or tel: links trigger Windows'
+    // "Open Pick an app?" dialog. Intercept and show a helpful toast instead.
+    // Mobile is untouched — phones handle these links natively.
     if(!isMobile){
       document.addEventListener('click', function(e){
-        var a = e.target.closest && e.target.closest('a[href^="sms:"]');
+        var a = e.target.closest && e.target.closest('a[href^="sms:"], a[href^="tel:"]');
         if(!a) return;
         e.preventDefault();
         var t = document.getElementById('smsToast');
@@ -1046,7 +1047,7 @@ body::after{
             + 'opacity:0;transition:opacity .25s ease;';
           document.body.appendChild(t);
         }
-        t.innerHTML = 'Text us at <strong style="color:#f5c14b;letter-spacing:.02em">(208) 249-7296</strong> from your phone.';
+        t.innerHTML = 'Call or text us at <strong style="color:#f5c14b;letter-spacing:.02em">(208) 249-7296</strong> from your phone.';
         requestAnimationFrame(function(){ t.style.opacity = '1'; });
         clearTimeout(window.__smsToastTimer);
         window.__smsToastTimer = setTimeout(function(){ t.style.opacity = '0'; }, 4500);
