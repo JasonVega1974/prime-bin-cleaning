@@ -1025,7 +1025,33 @@ body::after{
       return "sms:" + LEAD.sms + "?body=" + encodeURIComponent(body);
     };
 
-    var isMobile = /Mobi|Android|iPhone|iPad|iPod/i.test(navigator.userAgent) || (navigator.maxTouchPoints > 0 && window.innerWidth < 900);
+    var isMobile = /Mobi|Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
+
+    // Global guard: on desktop, never let an sms: link trigger Windows' "Open Pick an app?" dialog.
+    // Intercept clicks on any <a href="sms:..."> and show a helpful toast instead. Mobile is untouched.
+    if(!isMobile){
+      document.addEventListener('click', function(e){
+        var a = e.target.closest && e.target.closest('a[href^="sms:"]');
+        if(!a) return;
+        e.preventDefault();
+        var t = document.getElementById('smsToast');
+        if(!t){
+          t = document.createElement('div');
+          t.id = 'smsToast';
+          t.setAttribute('role','status');
+          t.style.cssText = 'position:fixed;left:50%;bottom:32px;transform:translateX(-50%);z-index:9999;'
+            + 'background:#0b1a30;color:#fff;padding:14px 22px;border-radius:12px;'
+            + 'box-shadow:0 12px 40px rgba(0,0,0,.5);border:1px solid rgba(127,215,255,.3);'
+            + 'font-family:Inter,system-ui,sans-serif;font-size:15px;max-width:88vw;text-align:center;'
+            + 'opacity:0;transition:opacity .25s ease;';
+          document.body.appendChild(t);
+        }
+        t.innerHTML = 'Text us at <strong style="color:#f5c14b;letter-spacing:.02em">(208) 249-7296</strong> from your phone.';
+        requestAnimationFrame(function(){ t.style.opacity = '1'; });
+        clearTimeout(window.__smsToastTimer);
+        window.__smsToastTimer = setTimeout(function(){ t.style.opacity = '0'; }, 4500);
+      });
+    }
 
     var showDone = function(phone, smsUrl){
       form.hidden = true;
