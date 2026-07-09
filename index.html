@@ -1088,14 +1088,14 @@ body::after{
   }
 
   // ===== sign-up / reserve form =====
-  // Leads are delivered without a backend. Default: FormSubmit (no account —
-  // the FIRST real submission emails an activation link to the address below;
-  // click it once and every sign-up after that lands in that inbox).
-  // To switch to Web3Forms instead: set provider:'web3forms' and paste web3formsKey.
+  // Leads are delivered without a backend via Web3Forms — no activation-email
+  // step required (unlike FormSubmit). Get a free access key at web3forms.com
+  // using the email below; the key is emailed to you instantly, paste it in.
+  // FormSubmit is left as a fallback path below in case you ever need it.
   var LEAD = {
-    provider: 'formsubmit',
+    provider: 'web3forms',
     email: 'primebincleaning0@gmail.com',
-    web3formsKey: '',            // <-- paste a key from web3forms.com to use Web3Forms
+    web3formsKey: '4d5cdfe7-f9bc-45dd-ac8e-d5e266810da3',
     sms: '+12082497296'
   };
 
